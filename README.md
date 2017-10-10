@@ -13,7 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-[libmodbus: Modbus library](https://github.com/stephane/libmodbus)
+Modbus library - [libmodbus](https://github.com/stephane/libmodbus)
 ```
 
 1) Installing dependancies.
