@@ -58,11 +58,17 @@ $ gcc filename.c -o filename $(pkg-config --libs --cflags libmodbus)
 
 ##### Installing
 
-You can install using pip or easy install by issuing the following commands (make sure you have correct permissions or a virtualenv currently running):
+You can install using pip OR easy install by issuing the following commands (make sure you have correct permissions or a virtualenv currently running):
 
 ```
 $ easy_install -U pymodbus3
 $ pip install -U pymodbus3
+```
+Example using pip:
+
+```
+$ sudo apt-get install python3-pip
+$ pip-3.2 pip install -U pymodbus3
 ```
 
 Otherwise you can pull the trunk source and install from there:
@@ -82,7 +88,7 @@ $ cd pymodbus3
 3) Install
 
 ```
-$ python setup.py install
+$ sudo python3 setup.py install
 ```
 
 Either method will install all the required dependencies (at their appropriate versions) for your current python distribution.
