@@ -135,7 +135,10 @@ The executable after compilation ```estimation``` takes up to two arguments.
 
 The first argument is the number(#) of IEEE-bus system.  
 
-The second argument (optional) is the hardware-connected bus from the Hardware-In-The-Loop (HITL) testbed. If this argument is not given by the user then the code runs only based on the measurements input file. If given then the user **must** -- before! -- run the python script to use the synchronous modbus client implementation from pymodbus.
+The second argument (optional) is the hardware-connected bus from the Hardware-In-The-Loop (HITL) testbed. 
+If this argument is not given by the user then the code runs only based on the measurements input file. 
+
+If the second argument (HITL bus) is a program input then the user **must** -- before execution (!) -- run the python script to use the synchronous modbus client implementation from pymodbus.
 
 Example:
 ```
