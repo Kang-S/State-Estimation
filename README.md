@@ -78,9 +78,9 @@ $ ./estimation 14 6
 
 ## Authors
 
-* **Harrys Kon** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Harrys Kon** - [Personal Website](https://harrys.fyi/)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
