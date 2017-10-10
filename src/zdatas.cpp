@@ -25,7 +25,7 @@ void zdatas(int num, vd zd[], vd out[], int bus, matr G, matr B, matr bbus, bool
     static int offset = 0;
     //cout << "\n=======================\noffset=" << offset << '\n';
 
-    string name = string()+"input"+std::to_string(num)+".txt";
+    string name = string()+"files/input"+std::to_string(num)+".txt";
     ifstream in(name);
     if ( !in ) throw "cannot open "+name;
 
@@ -90,7 +90,7 @@ void update(vd * v, int num, vd out[], int bus, matr G, matr B, matr bbus)
 
     double input = 0;
     {
-        std::ifstream in("wls.in");
+        std::ifstream in("files/wls.in");
         if( !in )
         {
             cout<<"No wls input !\r";

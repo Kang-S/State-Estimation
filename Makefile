@@ -13,13 +13,15 @@ LDFLAGS=$(PTHREAD)
 CPPFLAGS = -Wall $(DEBUG) $(CPP_ANSI_OPTS)
 LDLIBS = -L/usr/local/lib -lmodbus
 INC = -I/usr/include/modbus/
+SRC_DIR = src
 
-SOURCES= main.cpp tables.cpp cinv.cpp zdatas.cpp 
+SOURCES= $(wildcard $(SRC_DIR)/*.cpp)
 EXECUTABLE=estimation
     
 $(EXECUTABLE): 
 	$(CPP) $(CPPFLAGS) $(LDFLAGS) $(SOURCES) -o $@ $(MODBUS)
 
-clean:
-	$(RM) $(EXECUTABLE)
+.PHONY : $(EXECUTABLE) clean
 
+clean :
+	$(RM) $(EXECUTABLE)

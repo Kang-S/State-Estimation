@@ -14,16 +14,14 @@
 #include <thread>
 #include <mutex> 
 
- 
 #include <stdlib.h>
 #include <math.h>
 #include <unistd.h>
 
-
 #include "Matrix.h"
 #include "systab.h"
 #include <modbus.h>
-
+ 
 using std::cout;
 using namespace std::complex_literals;
 using std::vector;

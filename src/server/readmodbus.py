@@ -86,7 +86,7 @@ while True:
     log.debug("Read a holding register")
     rr = client.read_holding_registers(0, 1, unit=4)
     print (rr.registers[0])
-    f = open('wls.in','w')
+    f = open('../../files/wls.in','w')
     f.write(str((rr*10)/69000)) 
     f.close()
     #time.sleep(1)

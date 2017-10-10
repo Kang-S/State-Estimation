@@ -13,7 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-libmodbus: Modbus library
+[libmodbus: Modbus library](https://github.com/stephane/libmodbus)
 ```
 
 1) Installing dependancies.
@@ -57,7 +57,7 @@ $ git clone https://github.com/harryskon/State-Estimation.git
 Enter the directory and compile
 
 ```
-$ make
+$ make 
 ```
 Important note:
 
@@ -74,6 +74,8 @@ Example:
 ```
 $ ./estimation 14 6
 ```
+## Files in the directory
+
 
 ## Authors
 

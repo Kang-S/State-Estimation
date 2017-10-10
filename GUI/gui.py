@@ -94,7 +94,7 @@ label14=Label(root,fg="dark green",textvariable=variable14)
 label14.pack()
 stop_button=Button(root,text="stop",width=25,command=root.destroy)
 stop_button.pack()
-update_label("outputSE.txt")
+update_label("../files/outputSE.txt")
 root.mainloop()
 
 
