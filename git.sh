@@ -5,13 +5,13 @@ read -p "Add, Commit, Push remote? "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	echo    # (optional) move to a new line
-	
+
     read -p "Provide commit message: "
 	# Set git to use the credential memory cache
-	git config --global credential.helper cache
+	#git config --global credential.helper cache
 
-	# Set the cache to timeout after 2 hours (setting is in seconds)
-	git config --global credential.helper 'cache --timeout=7200'
+	# Set the cache to timeout after 4 hours (setting is in seconds)
+	#git config --global credential.helper 'cache --timeout=14400'
 
 	#stage new and modified files
 	git add .
