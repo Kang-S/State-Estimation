@@ -146,9 +146,14 @@ If this argument is not given by the user then the code runs only based on the m
 
 If the second argument (HITL bus) is a program input then the user **must** -- before execution (!) -- run the python script to use the synchronous modbus client implementation from pymodbus.
 
-Example:
+Example without HITL bus input (IEEE 14-bus system):
 ```
-$ ./estimation 14 6
+$ ./estimation 14
+```
+
+Example including the HITL bus (bus 3) input (IEEE 30-bus system):
+```
+$ ./estimation 30 3
 ```
 ## Files in the directory
 
