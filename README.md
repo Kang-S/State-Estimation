@@ -68,6 +68,30 @@ $ make
 Important note:
 
   * The files are compiled using C++14 standard.
+  * Using [godbolt.org](https://gcc.godbolt.org/) it appears that the earilest version to support -std=c++14 is GCC 4.9.0 or Clang 3.5.0. Thus, to use the -std=c++14 flag, update g++/gcc.
+  * To update gcc/g++ on Rasberry Pi 2 (wheezy) could be could be to install the g++ 4.9 packages from "Jessie". 
+
+  First bring the current Wheezy up-to-date:
+  ```
+  $ sudo apt-get update
+  $ sudo apt-get upgrade
+  ```
+  Then edit /etc/apt/sources.list so that you replace the string "wheezy" with "jessie":
+  ```
+  $ sudo cp /etc/apt/sources.list /etc/apt/sources.list.wheezy
+  $ sudo vi /etc/apt/sources.list
+  ```
+  Now update the package list and install the 4.9 version of GCC/G++:
+  ```
+  $ sudo apt-get update
+  $ sudo apt-get install gcc-4.9 g++-4.9
+  ```
+  After this revert to the "original" package list:
+  ```
+  $ sudo cp /etc/apt/sources.list.wheezy /etc/apt/sources.list
+  $ sudo apt-get update
+  ```
+  This leaves the original gcc,g++ in place. Now, to compile with the 4.9 version, then either set the CC and CXX env vars accordingly or invoke the compilers as gcc-4.9 or g++-4.9 explicitly.
 
 ## Running the code
 
