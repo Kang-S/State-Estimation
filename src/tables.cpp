@@ -3,6 +3,8 @@
 /*--W: https://harrys.fyi/----------------------------*/
 /*--E: konharrys@gmail.com----------------------------*/
 /*----------------------------------------------------*/
+
+// Line and bus data for IEEE- 14 & 30 bus systems
 #include "systab.h"
 
 SysTable::SysTable(Typs s, Typt t)
