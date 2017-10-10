@@ -22,7 +22,7 @@ What things you need to install the software and how to install them
 
 Modbus library - [libmodbus](https://github.com/stephane/libmodbus)
 
-1) Installing dependancies.
+1) Installing dependencies.
 
 ```
 $ sudo apt-get install -y autoconf libtool
@@ -65,11 +65,11 @@ Enter the directory and compile
 ```
 $ make 
 ```
-Important note:
+Important notes:
 
   * The files are compiled using C++14 standard.
   * Using [godbolt.org](https://gcc.godbolt.org/) it appears that the earilest version to support -std=c++14 is GCC 4.9.0 or Clang 3.5.0. Thus, to use the -std=c++14 flag, update g++/gcc.
-  * To update gcc/g++ on Rasberry Pi 2 (wheezy) could be could be to install the g++ 4.9 packages from "Jessie". 
+  * To update gcc/g++ on Raspberry Pi 2 (wheezy) could be could be to install the g++ 4.9 packages from "Jessie". 
 
   First bring the current Wheezy up-to-date:
   ```
@@ -92,6 +92,8 @@ Important note:
   $ sudo apt-get update
   ```
   This leaves the original gcc,g++ in place. Now, to compile with the 4.9 version, then either set the CC and CXX env vars accordingly or invoke the compilers as gcc-4.9 or g++-4.9 explicitly.
+
+  The Makefile of the project has been updated accordingly to use any gcc/g++ version >= 4.9.
 
 ## Running the code
 
