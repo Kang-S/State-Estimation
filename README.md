@@ -1,7 +1,7 @@
 # State-Estimation
 C++ state estimation code for power systems
 
-This is the first attempt to publish C++ code related to power systems operation. 
+This is the first attempt to publish C++ code related to power systems operation.   
 The aim is to create a benchmark library of emerging power system algorithms in order to evaluate them in any microprocessor platform. 
 
 ## Getting Started
@@ -67,7 +67,7 @@ Important note:
 
 The executable after compilation ```estimation``` takes up to two arguments.
 
-The first argument is the number(#) of IEEE-bus system.
+The first argument is the number(#) of IEEE-bus system.  
 The second argument (optional) is the hardware-connected bus from the Hardware-In-The-Loop (HITL) testbed. If this argument is not given by the user then the code runs only based on the measurements input file.   
 
 Example:
