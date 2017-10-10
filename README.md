@@ -74,8 +74,6 @@ Example:
 $ ./estimation 14 6
 ```
 
-```
-
 ## Authors
 
 * **Harrys Kon** - [Personal Website](https://harrys.fyi/)
