@@ -1,3 +1,8 @@
+/*----------------------------------------------------*/
+/*--Author: Harrys Kon (Charalambos Konstantinou)-----*/
+/*--W: https://harrys.fyi/----------------------------*/
+/*--E: konharrys@gmail.com----------------------------*/
+/*----------------------------------------------------*/
 struct SysTable
 {
 	enum Typs { S14, S30 } typs; // system

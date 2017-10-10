@@ -1,3 +1,8 @@
+/*----------------------------------------------------*/
+/*--Author: Harrys Kon (Charalambos Konstantinou)-----*/
+/*--W: https://harrys.fyi/----------------------------*/
+/*--E: konharrys@gmail.com----------------------------*/
+/*----------------------------------------------------*/
 #include <iostream>
 #include <fstream>
 #include <assert.h>

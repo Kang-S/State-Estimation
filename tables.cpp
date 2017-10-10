@@ -1,3 +1,8 @@
+/*----------------------------------------------------*/
+/*--Author: Harrys Kon (Charalambos Konstantinou)-----*/
+/*--W: https://harrys.fyi/----------------------------*/
+/*--E: konharrys@gmail.com----------------------------*/
+/*----------------------------------------------------*/
 #include "systab.h"
 
 SysTable::SysTable(Typs s, Typt t)

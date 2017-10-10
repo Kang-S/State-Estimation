@@ -1,3 +1,8 @@
+#----------------------------------------------------#
+#--Author: Harrys Kon (Charalambos Konstantinou)-----#
+#--W: https://harrys.fyi/----------------------------#
+#--E: konharrys@gmail.com----------------------------#
+#----------------------------------------------------#
 #!/usr/bin/env python
 import time
 import os.path
