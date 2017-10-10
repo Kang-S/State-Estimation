@@ -20,7 +20,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-Modbus library - [libmodbus](https://github.com/stephane/libmodbus)
+#### Modbus library - [libmodbus](https://github.com/stephane/libmodbus)
+
+##### Installing
 
 1) Installing dependencies.
 
@@ -52,6 +54,26 @@ To compile code, use
 ```
 $ gcc filename.c -o filename $(pkg-config --libs --cflags libmodbus)
 ```
+#### Pymodbus: Modbus protocol implementation in python - [pymodbus](https://github.com/uzumaxy/pymodbus3)
+
+##### Installing
+
+You can install using pip or easy install by issuing the following commands (make sure you have correct permissions or a virtualenv currently running):
+
+```
+$ easy_install -U pymodbus3
+$ pip install -U pymodbus3
+```
+
+Otherwise you can pull the trunk source and install from there:
+
+```
+$ git clone https://github.com/uzumaxy/pymodbus3.git
+$ cd pymodbus3
+$ python setup.py install
+```
+
+Either method will install all the required dependencies (at their appropriate versions) for your current python distribution.
 
 ### Source Download and Compilation
 
@@ -100,7 +122,8 @@ Important notes:
 The executable after compilation ```estimation``` takes up to two arguments.
 
 The first argument is the number(#) of IEEE-bus system.  
-The second argument (optional) is the hardware-connected bus from the Hardware-In-The-Loop (HITL) testbed. If this argument is not given by the user then the code runs only based on the measurements input file.   
+
+The second argument (optional) is the hardware-connected bus from the Hardware-In-The-Loop (HITL) testbed. If this argument is not given by the user then the code runs only based on the measurements input file. If given then the user **must** -- before! -- run the python script to use the synchronous modbus client implementation from pymodbus.
 
 Example:
 ```
