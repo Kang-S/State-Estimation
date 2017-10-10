@@ -1,11 +1,12 @@
 # State-Estimation
 C++ state estimation code for power systems
 
-This is the first attempt to publish C++ code related to power systems operation. The aim is to create a benchmark library of emerging power system algorithms in order to evaluate them in any microprocessor platform. 
+This is the first attempt to publish C++ code related to power systems operation. 
+The aim is to create a benchmark library of emerging power system algorithms in order to evaluate them in any microprocessor platform. 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
