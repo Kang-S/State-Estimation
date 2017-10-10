@@ -67,9 +67,21 @@ $ pip install -U pymodbus3
 
 Otherwise you can pull the trunk source and install from there:
 
+1) Clone pybmodbus master branch by,
+
 ```
 $ git clone https://github.com/uzumaxy/pymodbus3.git
+```
+
+2) Enter the directory.
+
+```
 $ cd pymodbus3
+```
+
+3) Install
+
+```
 $ python setup.py install
 ```
 
