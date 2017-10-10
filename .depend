@@ -1,0 +1,4 @@
+main.o: main.cpp Matrix.h systab.h
+tables.o: tables.cpp systab.h
+cinv.o: cinv.cpp Matrix.h
+zdatas.o: zdatas.cpp
