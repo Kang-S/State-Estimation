@@ -7,7 +7,7 @@
 #include <algorithm>
 #include <functional>
 #include <thread>
-#include <mutex>          // std::mutex
+#include <mutex> 
 
  
 #include <stdlib.h>
@@ -242,11 +242,6 @@ try
         else
             throw "Bad input arguments";
     }
-    
-    //double V_data[N], del_data[N];
-/*    V_data.resize(N,1);
-    del_data.resize(N,0);*/
-
     
     //Form Admittance (Y) And Impedance (Z) (inv(ybus)) Bus Formation
     unsigned int i,j,m,n,k;
@@ -755,25 +750,14 @@ try
             cout << string(3,' ') << i+1 << string(3,' ') << V[i] << string(3,' ') << del[i] << "\n";
         cout << "---------------------------------------------" << endl;
 
-        //std::copy(V.begin(), V.end(), V_data);
-        //std::copy(del.begin(), del.end(), del_data);
         mtx.lock();
-
         V_data = V;
         del_data = del;
-
         mtx.unlock();
 
-        // for( int i=0; i<N; i++ ) {
-        //     V_data[i] = V[i];
-        //     del_data[i] = del[i];
-
-        // }
         V.clear();
         del.clear();
         E.clear();
-
-
     }
 
     if( tserver )
