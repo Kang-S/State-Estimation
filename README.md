@@ -1,8 +1,3 @@
-/*----------------------------------------------------*/
-/*--Author: Harrys Kon (Charalambos Konstantinou)-----*/
-/*--W: https://harrys.fyi/----------------------------*/
-/*--E: konharrys@gmail.com----------------------------*/
-/*----------------------------------------------------*/
 # State-Estimation
 C++ state estimation code for power systems
 
@@ -23,32 +18,32 @@ libmodbus: Modbus library
 1) Installing dependancies.
 
 ```
-sudo apt-get install -y autoconf libtool
+$ sudo apt-get install -y autoconf libtool
 ```
 
 2) Clone libmodbus master branch by,
 
 ```
-git clone https://github.com/stephane/libmodbus/
+$ git clone https://github.com/stephane/libmodbus/
 ```
 
 3) Enter the directory.
 
 ```
-cd libmodbus
+$ cd libmodbus
 ```
 
 4) Configure and install
 
 ```
-./autogen.sh && ./configure –prefix=/usr && make && sudo make install
+$ ./autogen.sh && ./configure –prefix=/usr && make && sudo make install
 ```
 
 5) To test the libmodbus, try examples under tests folder.
 
 To compile code, use 
 ```
-gcc filename.c -o filename $(pkg-config --libs --cflags libmodbus)
+$ gcc filename.c -o filename $(pkg-config --libs --cflags libmodbus)
 ```
 
 ### Source Download and Compilation
@@ -56,12 +51,12 @@ gcc filename.c -o filename $(pkg-config --libs --cflags libmodbus)
 After having all the required dependencies installed, acquire the source code by cloning the git repository:
 
 ```
-git clone https://github.com/harryskon/State-Estimation.git
+$ git clone https://github.com/harryskon/State-Estimation.git
 ```
 Enter the directory and compile
 
 ```
-make
+$ make
 ```
 Important note:
 
@@ -76,7 +71,7 @@ The second argument (optional) is the hardware-connected bus from the Hardware-I
 
 Example:
 ```
-./estimation 14 6
+$ ./estimation 14 6
 ```
 
 ```
