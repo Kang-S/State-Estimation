@@ -98,16 +98,11 @@ void update(vd * v, int num, vd out[], int bus, matr G, matr B, matr bbus)
         }
         in >> input;
     }
-    //cout << "here is the input " << input << endl;
 
-    
-
-    //const int Indx = 0;
     const int Type = 1;
     const int Val = 2;
     const int From = 3;
     const int To = 4;
-    //const int Err = 5;
 
     // here update code
     double val = 0;

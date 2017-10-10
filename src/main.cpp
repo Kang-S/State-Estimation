@@ -44,24 +44,26 @@ int server();
 vd V_data, del_data;
 std::mutex mtx;
 
-void subtract(const vd &a, const vd &b, vd &c){
+void subtract(const vd &a, const vd &b, vd &c)
+{
     transform(a.begin(),a.end(),b.begin(),c.begin(), [] (double a, double b) { return a - b; });
 }
 
-void add(const vd &a, const vd &b, vd &c){
+void add(const vd &a, const vd &b, vd &c)
+{
     transform(a.begin(),a.end(),b.begin(),c.begin(), [] (double a, double b) { return a + b; });
 }
 
-void multiply(const vd &a, const vd &b, vd &c){
+void multiply(const vd &a, const vd &b, vd &c)
+{
     transform(a.begin(),a.end(),b.begin(),c.begin(), [] (double a, double b) { return a*b; });
 }
 
 double matrmultiply(matr A, matr B, int i, int j)
 {
     double val= 0;
-    for (unsigned int k = 0; k < A[0].size(); k++){
+    for (unsigned int k = 0; k < A[0].size(); k++)
         val += (A[i][k])*(B[k][j]);
-    }
     return val;
 }
 
@@ -71,38 +73,35 @@ void vecmultiply(matr A, vd &B, vd &C)
     double val;
     for (unsigned int i = 0; i < A.size(); i++){
         val = 0;
-        for (unsigned int j = 0; j < A[0].size(); j++) {
+        for (unsigned int j = 0; j < A[0].size(); j++)
             val += (A[i][j])*(B[j]);
-        }
         C.push_back(val);
     }
 }
 
-void printMatrix(matr A) {
+void printMatrix(matr A) 
+{
     for (unsigned int i=0; i<A.size(); i++) {
-        for (unsigned int j=0; j<A[0].size(); j++) {
+        for (unsigned int j=0; j<A[0].size(); j++)
             cout << A[i][j] << "\t";
-        }
         cout << "\n";
     }
     cout << endl;
 }
 
-void printVector(vd A) {
-    for (unsigned int j=0; j<A.size(); j++) {
+void printVector(vd A) 
+{
+    for (unsigned int j=0; j<A.size(); j++)
         cout << A[j] << "\n";
-    }
     cout << endl;
 }
-
 
 double sumMatrix(matr A)
 {
     double s=0;
     for (unsigned int i=0; i<A.size(); i++) {
-        for (unsigned int j=0; j<A[0].size(); j++) {
+        for (unsigned int j=0; j<A[0].size(); j++)
             s+=A[i][j];
-        }
     }
     return s;    
 }
@@ -110,13 +109,10 @@ double sumMatrix(matr A)
 double sumVector(vd A)
 {
     double s=0;
-    for (unsigned int j=0; j<A.size(); j++) {
+    for (unsigned int j=0; j<A.size(); j++)
         s+=A[j];
-    }
     return s;    
 }
-
-
 /*----------------------------------------------------------------------------------*/
 int get1 (double x){ return int(x); }
 int get2 (double x) {return int (0.5 + 100000*(x-get1(x)));}
@@ -127,12 +123,14 @@ void modbus_write_test(modbus_mapping_t *mb_mapping)
     if (V_data.empty())
         return;
     mtx.lock();
-    //mb_mapping->tab_registers[5] = get2(del_data[0]);
-    //mb_mapping->tab_registers[4] = get1(del_data[0]);
-    //mb_mapping->tab_registers[3] = get2(V_data[0]);
-    //mb_mapping->tab_registers[2] = get1(V_data[0]);
     mb_mapping->tab_registers[0] = 0x5678;
     mb_mapping->tab_registers[1] = 0x1234;
+    /*for (int i=0; i < V_data.size(); i++) {
+        mb_mapping->tab_registers[i] = get1(V_data[i]);
+        mb_mapping->tab_registers[i+1] = get2(V_data[i]);
+        mb_mapping->tab_registers[i+2] = get1(del_data[i]);
+        mb_mapping->tab_registers[i+3] = get2(del_data[i]);
+    }*/
     mtx.unlock();
 }
 
@@ -143,15 +141,14 @@ void modbus_write_test(modbus_mapping_t *mb_mapping)
     int test;
     test = modbus_read_registers(ctx,2,2,tab_reg);
     if (test == -1) {
-     fprintf(stderr, "%s\n", modbus_strerror(errno));
-     return -1;
-     }
-
+        cout << stderr << " " << modbus_strerror(errno) << endl;
+        return -1;
+    }
     for (int i=0; i < test; i++) {
-       printf("reg[%d]=%d (0x%X)\n", i, tab_reg[i], tab_reg[i]);
-     }
-}
-*/
+        cout << "reg[" << i << "] = " << std::hex << tab_reg[i] << endl;
+    }
+}*/
+
 
 int server()
 {
@@ -173,18 +170,16 @@ int server()
 
         rc = modbus_receive(ctx, query);
 
-        if (rc > 0) {
-            // rc is the query size
+        if (rc > 0) { // rc is the query size
             modbus_write_test(mb_mapping);
             //modbus_read_test(mb_mapping);
             modbus_reply(ctx, query, rc, mb_mapping);
-        } else if (rc == -1) {
-            // Connection closed by the client or error
+        } else if (rc == -1) { // Connection closed by the client or error
             break;
         }
     }
 
-    printf("Quit the loop: %s\n", modbus_strerror(errno));
+    cout << "Quit the loop: " << modbus_strerror(errno) << endl;
 
     if (s != -1) {
         close(s);
@@ -658,7 +653,7 @@ try
 
             unsigned int size_Gm = Gm.size();
 
-            // Covariance matrix
+            // Covariance matrix (not used now)
             vd CvE(size_Gm);
             for(i=0; i<Gm.size(); i++ ){
                 for(j=0; j<Gm[0].size(); j++ ) {
@@ -668,8 +663,7 @@ try
                 }    
             }
 
-            /*Objective Function..
-            J = sum(inv(Ri)*r.^2); */
+            /*Objective Function: J = sum(inv(Ri)*r.^2) (not used now) */
             vd rsq(residue.size());
             vd t;
             multiply(residue,residue,rsq);
@@ -678,7 +672,6 @@ try
             std::for_each(t.begin(), t.end(), [&] (double n) { J += n;});
         
             // State vector
-            // dE = inv(Gm)*(H'*inv(Ri)*r)
             t.clear();
             vecmultiply(temp,residue,t);
 
@@ -722,7 +715,6 @@ try
             iter = iter + 1;
 
             //tol = max(abs(dE))
-            //for (auto& f : dE) { f = f < 0 ? -f : f;} 
             vd absdE(dE.size());
             for (i = 0; i < dE.size(); i++){
                 if (dE[i] < 0) 
@@ -730,12 +722,11 @@ try
                 else
                     absdE[i] = dE[i];
             }
-
             tol = *max_element(absdE.begin(), absdE.end());  
 
-            for(i=0; i<5; i++){
+            for(i=0; i<5; i++)
                 h[i].clear();
-            }
+
             hx.clear();          
         }
         
