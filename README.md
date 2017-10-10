@@ -8,9 +8,9 @@ The aim is to create a benchmark library of emerging power system algorithms in 
 
 Run the state estimation algorithm on a Raspberry Pi & add a Hardware-Performance-Counter (HPC) routine to monitor how False-Data-Injection (FDI) attacks can be detected. 
 
-- More on malware detection with HPCs: [1](http://ieeexplore.ieee.org/abstract/document/7470546/)
+- More on malware detection with HPCs: [Malicious firmware detection with hardware performance counters](http://ieeexplore.ieee.org/abstract/document/7470546/)
 
-- More on state estimation and FDI attacks: [2](https://dl.acm.org/citation.cfm?id=2994491)
+- More on state estimation and FDI attacks: [A Case Study on Implementing False Data Injection Attacks Against Nonlinear State Estimation](https://dl.acm.org/citation.cfm?id=2994491)
 
 ## Getting Started
 
