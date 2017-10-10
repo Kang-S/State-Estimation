@@ -43,7 +43,7 @@ $ cd libmodbus
 4) Configure and install
 
 ```
-$ ./autogen.sh && ./configure –prefix=/usr && make && sudo make install
+$ ./autogen.sh && ./configure --prefix=/usr && make && sudo make install
 ```
 
 5) To test the libmodbus, try examples under tests folder.
