@@ -1,5 +1,0 @@
-The Raspberry Pi 2 Model B is based on the Broadcom BCM2836(R1FBG) processor. The BCM2836 has an ARM Cortex-A7 quad-core, a member of the Cortex-A7 family. 
-
-Rpi1
----------
-The performance monitoring unit (PMU) is part of the ARM 1176 c15 System Control Coprocessor. The ARM1176JZF-S Technical Reference Manual describes the code in detail, including the performance counters and events.
