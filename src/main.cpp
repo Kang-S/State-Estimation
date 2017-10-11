@@ -120,44 +120,30 @@ int get2 (double x) {return int (0.5 + 100000*(x-get1(x)));}
 void modbus_write_test(modbus_mapping_t *mb_mapping)
 
 {
-    if (V_data.empty())
-        return;
     mtx.lock();
-    mb_mapping->tab_registers[0] = 0x5678;
-    mb_mapping->tab_registers[1] = 0x1234;
-    /*for (int i=0; i < V_data.size(); i++) {
-        mb_mapping->tab_registers[i] = get1(V_data[i]);
-        mb_mapping->tab_registers[i+1] = get2(V_data[i]);
-        mb_mapping->tab_registers[i+2] = get1(del_data[i]);
-        mb_mapping->tab_registers[i+3] = get2(del_data[i]);
-    }*/
+    if (V_data.empty()) {
+       mtx.unlock();
+       return;
+    }
+    
+    for (unsigned int i=0; i < V_data.size(); i++) {
+        mb_mapping->tab_registers[i] = get1(V_data[i]*6900);
+        //mb_mapping->tab_registers[i+1] = get2(V_data[i]);
+        //mb_mapping->tab_registers[i+2] = get1(del_data[i]);
+        //mb_mapping->tab_registers[i+3] = get2(del_data[i]);
+    }
     mtx.unlock();
 }
-
-/*int modbus_read_test(modbus_t *ctx)
-
-{
-    uint16_t tab_reg[64];
-    int test;
-    test = modbus_read_registers(ctx,2,2,tab_reg);
-    if (test == -1) {
-        cout << stderr << " " << modbus_strerror(errno) << endl;
-        return -1;
-    }
-    for (int i=0; i < test; i++) {
-        cout << "reg[" << i << "] = " << std::hex << tab_reg[i] << endl;
-    }
-}*/
 
 
 int server()
 {
     int s = -1;
     modbus_t *ctx;
-    modbus_mapping_t *mb_mapping;
+    modbus_mapping_t *mb_mapping = nullptr;
 
     ctx = modbus_new_tcp("192.168.1.3", 1502);
-    mb_mapping = modbus_mapping_new(0, 0, 10, 0);
+    mb_mapping = modbus_mapping_new(0, 0, 20, 0);
 
     s = modbus_tcp_listen(ctx, 1);
     modbus_tcp_accept(ctx, &s);
@@ -353,7 +339,7 @@ try
         vd residue(z.size());
         double J = 0;
 
-        while (tol > 1e-4) {
+        while (tol > 3) {
 
             //Measurement function h
             for(i=0; i<vi.size(); i++){
@@ -744,11 +730,11 @@ try
             cout << string(3,' ') << i+1 << string(3,' ') << V[i] << string(3,' ') << del[i] << "\n";
         cout << "---------------------------------------------" << endl;
 
+
         mtx.lock();
         V_data = V;
         del_data = del;
         mtx.unlock();
-
         V.clear();
         del.clear();
         E.clear();
