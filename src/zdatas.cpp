@@ -69,7 +69,7 @@ void zdatas(int num, vd zd[], vd out[], int bus, matr G, matr B, matr bbus, bool
     }
 
     void update(vd * v, int num, vd out[], int bus, matr G, matr B, matr bbus);
-    if (hitlflag) 
+    //if (hitlflag) 
         update(v,num,out,bus,G,B,bbus);
 
     for( int i=0; i<6; i++ )
@@ -86,7 +86,9 @@ void update(vd * v, int num, vd out[], int bus, matr G, matr B, matr bbus)
     const int Vo = 0;
     const int Do = 1;
 
-    if( out[Vo].empty() ) return;
+    if( out[Vo].empty() ){
+        return;
+    } 
 
     double input = 0;
     {
@@ -105,7 +107,7 @@ void update(vd * v, int num, vd out[], int bus, matr G, matr B, matr bbus)
     const int To = 4;
 
     // here update code
-    double val = 0;
+    double dum = 0;
     unsigned int i,j;
     for ( size_t k = 0; k < v[0].size(); k++ )
     {
@@ -116,20 +118,20 @@ void update(vd * v, int num, vd out[], int bus, matr G, matr B, matr bbus)
         // Real Power Injection 
         if ( v[Type][k] == 2 && ( v[From][k] == bus && v[To][k] == 0))
         {
-            val = 0;
+            dum = 0;
             for (j=0; j<out[Vo].size(); j++) {
-                val+=out[Vo][j]*(G[bus-1][j]*cos(out[Do][bus-1] - out[Do][j]) + B[bus-1][j]*sin(out[Do][bus-1] - out[Do][j]));
+                dum+=out[Vo][j]*(G[bus-1][j]*cos(out[Do][bus-1] - out[Do][j]) + B[bus-1][j]*sin(out[Do][bus-1] - out[Do][j]));
             }
-            v[Val][k] = val*input;
+            v[Val][k] = dum*input;
         }
         // Reactive Power Injection 
         if ( v[Type][k] == 3 && (v[From][k] == bus && v[To][k] == 0))
         {
-            val = 0;
+            dum = 0;
             for (j=0; j<out[Vo].size(); j++) {
-                val+=out[Vo][j]*(G[bus-1][j]*sin(out[Do][bus-1] - out[Do][j]) - B[bus-1][j]*cos(out[Do][bus-1] - out[Do][j]));
+                dum+=out[Vo][j]*(G[bus-1][j]*sin(out[Do][bus-1] - out[Do][j]) - B[bus-1][j]*cos(out[Do][bus-1] - out[Do][j]));
             }
-            v[Val][k] = val*input;
+            v[Val][k] = dum*input;
         }
         // Real Power Flow
         if ( v[Type][k] == 4 && (v[From][k] == bus || v[To][k] == bus))

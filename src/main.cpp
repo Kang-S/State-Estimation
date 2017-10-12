@@ -126,11 +126,15 @@ void modbus_write_test(modbus_mapping_t *mb_mapping)
        return;
     }
     
-    for (unsigned int i=0; i < V_data.size(); i++) {
+    // 14-bus system HITL
+    for (unsigned int i=0; i < 5; i++) {
         mb_mapping->tab_registers[i] = get1(V_data[i]*6900);
-        //mb_mapping->tab_registers[i+1] = get2(V_data[i]);
-        //mb_mapping->tab_registers[i+2] = get1(del_data[i]);
-        //mb_mapping->tab_registers[i+3] = get2(del_data[i]);
+    }
+    mb_mapping->tab_registers[5] = get1(V_data[5]*1380);
+    mb_mapping->tab_registers[6] = get1(V_data[6]*1380);
+    mb_mapping->tab_registers[7] = get1(V_data[7]*1800);
+    for (unsigned int i=8; i < 14; i++) {
+        mb_mapping->tab_registers[i] = get1(V_data[i]*1380);
     }
     mtx.unlock();
 }
@@ -339,7 +343,7 @@ try
         vd residue(z.size());
         double J = 0;
 
-        while (tol > 3) {
+        while (tol > 1e-4) {
 
             //Measurement function h
             for(i=0; i<vi.size(); i++){
