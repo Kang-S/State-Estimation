@@ -207,12 +207,13 @@ try
     
     SysData s14(SysTable::S14);
     SysData s30(SysTable::S30);
+    SysData s57(SysTable::S57);
     SysData * sn;
 
     unsigned int N=atoi(argv[1]);
     unsigned int bus= 0;
 
-    if ((N!=14) && (N!=30))
+    if ((N!=14) && (N!=30) && (N!=57))
         throw "Bad input IEEE system argument";
 
     if (hitlflag) {
@@ -221,6 +222,8 @@ try
             sn = &s14;
         else if ((N==30) && ((bus>0) && (bus<31)))
             sn = &s30;
+        else if ((N==57) && ((bus>0) && (bus<58)))
+            sn = &s57;
         else
             throw "Bad input bus argument";
     } else {
@@ -228,6 +231,8 @@ try
             sn = &s14;
         else if (N==30)
             sn = &s30;
+        else if (N==57)
+            sn = &s57;
         else
             throw "Bad input arguments";
     }
@@ -732,7 +737,7 @@ try
         cout << "| No  |   pu   |  Degree | " << endl;
         cout << "--------------------------" << endl;
         for(i=0; i<N; i++)
-            cout << std::setw(4) << i+1 << string(3,' ') << V[i] << string(3,' ') << del[i] << "\n";
+            cout << std::setw(4) << i+1 << std::setw(11) << V[i] << std::setw(10) << del[i] << "\n";
         cout << "---------------------------------------------" << endl;
 
 
