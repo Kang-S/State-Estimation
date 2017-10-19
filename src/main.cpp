@@ -13,6 +13,7 @@
 #include <functional>
 #include <thread>
 #include <mutex> 
+#include <iomanip>
 
 #include <stdlib.h>
 #include <math.h>
@@ -731,7 +732,7 @@ try
         cout << "| No  |   pu   |  Degree | " << endl;
         cout << "--------------------------" << endl;
         for(i=0; i<N; i++)
-            cout << string(3,' ') << i+1 << string(3,' ') << V[i] << string(3,' ') << del[i] << "\n";
+            cout << std::setw(4) << i+1 << string(3,' ') << V[i] << string(3,' ') << del[i] << "\n";
         cout << "---------------------------------------------" << endl;
 
 
